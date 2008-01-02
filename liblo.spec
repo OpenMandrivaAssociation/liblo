@@ -15,6 +15,7 @@ Source:		http://plugin.org.uk/liblo/releases/%{name}-%{version}.tar.gz
 URL:		http://plugin.org.uk/liblo/
 License:	GPLv2
 Group:		Sound
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	doxygen
 
 %description
