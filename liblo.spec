@@ -1,6 +1,5 @@
 %define name	liblo
 %define version	0.24
-%define release %mkrel 2
 
 %define major		0
 %define libname 	%{mklibname lo %major}
@@ -9,7 +8,7 @@
 Name: 	 	%{name}
 Summary: 	Open Sound Control protocol
 Version: 	%{version}
-Release: 	%{release}
+Release: 	%mkrel 3
 
 Source:		http://plugin.org.uk/liblo/releases/%{name}-%{version}.tar.gz
 URL:		http://plugin.org.uk/liblo/
