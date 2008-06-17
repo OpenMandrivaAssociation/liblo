@@ -8,7 +8,7 @@
 Name: 	 	%{name}
 Summary: 	Open Sound Control protocol
 Version: 	%{version}
-Release: 	%mkrel 3
+Release: 	%mkrel 4
 
 Source:		http://plugin.org.uk/liblo/releases/%{name}-%{version}.tar.gz
 URL:		http://plugin.org.uk/liblo/
