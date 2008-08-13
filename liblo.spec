@@ -1,5 +1,5 @@
 %define name	liblo
-%define version	0.24
+%define version	0.25
 
 %define major		0
 %define libname 	%{mklibname lo %major}
@@ -8,7 +8,7 @@
 Name: 	 	%{name}
 Summary: 	Open Sound Control protocol
 Version: 	%{version}
-Release: 	%mkrel 4
+Release: 	%mkrel 1
 
 Source:		http://plugin.org.uk/liblo/releases/%{name}-%{version}.tar.gz
 URL:		http://plugin.org.uk/liblo/
@@ -47,7 +47,7 @@ Libraries and includes files for developing programs based on %name.
 										
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall
+%makeinstall_std
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -59,9 +59,13 @@ rm -rf $RPM_BUILD_ROOT
 %postun -n %{libname} -p /sbin/ldconfig
 %endif
 
+%files
+%defattr(-,root,root)
+%{_bindir}/*
+
 %files -n %{libname}
 %defattr(-,root,root)
-%{_libdir}/*.so.*
+%{_libdir}/*.so.%{major}*
 
 %files -n %{develname}
 %defattr(-,root,root)
