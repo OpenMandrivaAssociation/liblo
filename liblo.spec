@@ -1,56 +1,56 @@
-%define name	liblo
-%define version	0.25
+%define major		7
+%define libname		%mklibname lo %{major}
+%define develname	%mklibname lo -d
 
-%define major		0
-%define libname 	%{mklibname lo %major}
-%define develname	%{mklibname lo -d}
-
-Name: 	 	%{name}
-Summary: 	Open Sound Control protocol
-Version: 	%{version}
-Release: 	%mkrel 1
-
-Source:		http://plugin.org.uk/liblo/releases/%{name}-%{version}.tar.gz
-URL:		http://plugin.org.uk/liblo/
+Summary:	Open Sound Control protocol
+Name:		liblo
+Version:	0.26
+Release:	%mkrel 1
 License:	GPLv2
 Group:		Sound
-BuildRoot:	%{_tmppath}/%{name}-buildroot
+URL:		http://liblo.sourceforge.net/
+Source0:	http://downloads.sourceforge.net/liblo/%{name}-%{version}.tar.bz2
 BuildRequires:	doxygen
+BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 LibLO is an implementation of the Open Sound Control protocol for POSIX
 systems, started by Steve Harris.
 
-%package -n 	%{libname}
-Summary:        Dynamic libraries from %name
-Group:          System/Libraries
+%package -n %{libname}
+Summary:	Dynamic libraries from %{name}
+Group:		System/Libraries
+Obsoletes:	%{mklibname lo 0}
 
 %description -n %{libname}
-Dynamic libraries from %name.
+Dynamic libraries from %{name}.
 
-%package -n 	%{develname}
-Summary: 	Header files and static libraries from %name
-Group: 		Development/C
-Requires: 	%{libname} >= %{version}-%{release}
-Provides: 	%{name}-devel = %{version}-%{release}
+%package -n %{develname}
+Summary:	Header files and static libraries from %{name}
+Group:		Development/C
+Requires:	%{libname} >= %{version}-%{release}
+Provides:	%{name}-devel = %{version}-%{release}
 Obsoletes:	%{mklibname lo 0 -d}
 
 %description -n %{develname}
-Libraries and includes files for developing programs based on %name.
+Libraries and includes files for developing programs based on %{name}.
 
 %prep
 %setup -q
 
 %build
-%configure2_5x --enable-static
+%configure2_5x \
+	--enable-static \
+	--enable-ipv6
+
 %make
 										
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
