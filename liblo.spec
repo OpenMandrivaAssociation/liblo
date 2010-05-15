@@ -5,7 +5,7 @@
 Summary:	Open Sound Control protocol
 Name:		liblo
 Version:	0.26
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPLv2
 Group:		Sound
 URL:		http://liblo.sourceforge.net/
@@ -40,8 +40,9 @@ Libraries and includes files for developing programs based on %{name}.
 
 %build
 %configure2_5x \
-	--enable-static \
-	--enable-ipv6
+	--enable-static 
+# do not use ipv6 atm since it causes slowness when calling dssi objects
+#	--enable-ipv6
 
 %make
 										
