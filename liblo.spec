@@ -4,14 +4,13 @@
 
 Summary:	Open Sound Control protocol
 Name:		liblo
-Version:	0.26
-Release:	6
+Version:	0.27
+Release:	1
 License:	GPLv2
 Group:		Sound
 URL:		http://liblo.sourceforge.net/
-Source0:	http://downloads.sourceforge.net/liblo/%{name}-%{version}.tar.bz2
+Source0:	http://downloads.sourceforge.net/liblo/%{name}-%{version}.tar.gz
 BuildRequires:	doxygen
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 LibLO is an implementation of the Open Sound Control protocol for POSIX
@@ -47,23 +46,16 @@ Libraries and includes files for developing programs based on %{name}.
 %make
 										
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 rm -rf %{buildroot}%{_libdir}/*.la
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %{_bindir}/*
 
 %files -n %{libname}
-%defattr(-,root,root)
 %{_libdir}/*.so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root)
 %doc AUTHORS NEWS ChangeLog README
 %{_includedir}/*
 %{_libdir}/*.so
