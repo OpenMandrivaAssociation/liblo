@@ -1,11 +1,11 @@
-%define major	7
-%define libname	%mklibname lo %{major}
-%define devname	%mklibname lo -d
+%define major 7
+%define libname %mklibname lo %{major}
+%define devname %mklibname lo -d
 
 Summary:	Open Sound Control protocol
 Name:		liblo
 Version:	0.27
-Release:	5
+Release:	1
 License:	GPLv2
 Group:		Sound
 Url:		http://liblo.sourceforge.net/
@@ -36,7 +36,7 @@ Libraries and includes files for developing programs based on %{name}.
 %setup -q
 
 %build
-%configure2_5x \
+%configure \
 	--disable-static 
 # do not use ipv6 atm since it causes slowness when calling dssi objects
 #	--enable-ipv6
