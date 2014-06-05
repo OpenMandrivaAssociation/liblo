@@ -1,4 +1,3 @@
-removed_sources:
-  liblo-0.26.tar.bz2: 9e033664e0f9c201ed66d47ab71d22651d715fa0
+
 sources:
-  liblo-0.27.tar.gz: bbd92eb9ab7316ee3f75b6b887b6f853b848c1e5
+  liblo-0.28.tar.gz: 949d5f0c9919741c67602514786b9c7366fa001b
