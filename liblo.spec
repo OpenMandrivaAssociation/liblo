@@ -36,6 +36,8 @@ Libraries and includes files for developing programs based on %{name}.
 %setup -q
 
 %build
+%global optflags %{optflags} -Wno-error -Wno-absolute-value
+
 %configure \
 	--disable-static 
 # do not use ipv6 atm since it causes slowness when calling dssi objects
