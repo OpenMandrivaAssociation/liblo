@@ -5,7 +5,7 @@
 Summary:	Open Sound Control protocol
 Name:		liblo
 Version:	0.31
-Release:	1
+Release:	2
 License:	GPLv2
 Group:		Sound
 Url:		http://liblo.sourceforge.net/
