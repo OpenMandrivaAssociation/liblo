@@ -1,15 +1,16 @@
 %define major 7
-%define libname %mklibname lo %{major}
+%define libname %mklibname lo
+%define oldlibname %mklibname lo 7
 %define devname %mklibname lo -d
 
 Summary:	Open Sound Control protocol
 Name:		liblo
-Version:	0.31
-Release:	2
+Version:	0.32
+Release:	1
 License:	GPLv2
 Group:		Sound
-Url:		http://liblo.sourceforge.net/
-Source0:	http://downloads.sourceforge.net/liblo/%{name}-%{version}.tar.gz
+Url:		https://liblo.sourceforge.net/
+Source0:	https://downloads.sourceforge.net/liblo/%{name}-%{version}.tar.gz
 BuildRequires:	doxygen
 
 %description
@@ -19,6 +20,7 @@ systems, started by Steve Harris.
 %package -n %{libname}
 Summary:	Dynamic libraries from %{name}
 Group:		System/Libraries
+%rename %{oldlibname}
 
 %description -n %{libname}
 Dynamic libraries from %{name}.
