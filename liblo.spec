@@ -11,6 +11,11 @@ License:	GPLv2
 Group:		Sound
 Url:		https://liblo.sourceforge.net/
 Source0:	https://downloads.sourceforge.net/liblo/%{name}-%{version}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	doxygen
 
 %description
